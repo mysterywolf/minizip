@@ -54,7 +54,7 @@ Usage : minizip [-o] [-a] [-0 to -9] [-p password] file.zip [files_to_add]
 ```
 RT-Thread online package -> 
      miscellaneous package -> 
-         [*] minizip: reading files compressed within a Zip archive  --->
+         [*] minizip: zip manipulation library --->
 ```
 
 
