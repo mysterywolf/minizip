@@ -90,7 +90,7 @@ static int check_exist_file(filename)
 static void do_banner()
 {
     printf("MiniZip 1.01b, demo of zLib + Zip package written by Gilles Vollant\n");
-    printf("more info at http://www.winimage.com/zLibDll/unzip.html\n\n");
+    printf("more info at http://www.winimage.com/zLibDll/minizip.html\n\n");
 }
 
 static void do_help()
@@ -375,5 +375,5 @@ static int minizip_main(argc,argv)
 #include <rtconfig.h>
 #ifdef FINSH_USING_MSH
 #include <finsh.h>
-MSH_CMD_EXPORT_ALIAS(minizip_main, minizip, minizip);
+MSH_CMD_EXPORT_ALIAS(minizip_main, minizip, demo of zLib + Zip package);
 #endif

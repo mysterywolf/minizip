@@ -129,7 +129,7 @@ static int makedir (newdir)
 static void do_banner()
 {
     printf("MiniUnz 1.01b, demo of zLib + Unz package written by Gilles Vollant\n");
-    printf("more info at http://www.winimage.com/zLibDll/unzip.html\n\n");
+    printf("more info at http://www.winimage.com/zLibDll/minizip.html\n\n");
 }
 
 static void do_help()
@@ -325,7 +325,7 @@ static int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,pa
             {
                 char c=*(filename_withoutpath-1);
                 *(filename_withoutpath-1)='\0';
-                makedir(write_filename);
+                makedir((char *)write_filename);
                 *(filename_withoutpath-1)=c;
                 fout=fopen(write_filename,"wb");
             }
@@ -552,5 +552,5 @@ static int miniunz_main(argc,argv)
 #include <rtconfig.h>
 #ifdef FINSH_USING_MSH
 #include <finsh.h>
-MSH_CMD_EXPORT_ALIAS(miniunz_main, miniunz, miniunz);
+MSH_CMD_EXPORT_ALIAS(miniunz_main, miniunz, demo of zLib + Unz package);
 #endif
