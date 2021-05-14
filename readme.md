@@ -1,6 +1,6 @@
-# Minizip for RT-Thread
+# minizip for RT-Thread
 
-[Minizip](http://www.winimage.com/zLibDll/minizip.html) 是依托于[zlib软件包](https://github.com/RT-Thread-packages/zlib)的一个zip格式解、压缩的软件包。
+[minizip](http://www.winimage.com/zLibDll/minizip.html)是依托于[zlib软件包](https://github.com/RT-Thread-packages/zlib)的一个zip格式解、压缩的软件包。minizip是zlib官方认可的一个第三方库。
 
 
 
@@ -11,9 +11,9 @@
 
 
 
-## 提供解压缩命令2个
+## 提供命令2个
 
-### 1. miniunz 命令
+### 1. miniunz 解压命令
 
 负责解压zip压缩包，命令如下：
 
@@ -29,9 +29,9 @@ Usage : miniunz [-e] [-x] [-v] [-l] [-o] [-p password] file.zip [file_to_extr.] 
   -p  extract crypted file using password
 ```
 
-一般，用`-e`命令来解压提取，用`-l`或`-v`命令来列出压缩包内的文件。
+一般，用`-e`命令来解压提取压缩包内的文件（支持提取子文件夹内的文件）；用`-l`或`-v`命令来列出压缩包内的文件。
 
-### 2. minizip命令
+### 2. minizip 压缩命令
 
 负责将多文件压缩为zip压缩包，命令如下：
 
