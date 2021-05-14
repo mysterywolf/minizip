@@ -33,7 +33,7 @@ Usage : miniunz [-e] [-x] [-v] [-l] [-o] [-p password] file.zip [file_to_extr.] 
 
 ### 2. minizip命令
 
-负责解压zip压缩包，命令如下：
+负责将多文件压缩为zip压缩包，命令如下：
 
 ```shell
 Usage : minizip [-o] [-a] [-0 to -9] [-p password] file.zip [files_to_add]
