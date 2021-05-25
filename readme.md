@@ -2,6 +2,7 @@
 
 [minizip](http://www.winimage.com/zLibDll/minizip.html)是依托于[zlib软件包](https://github.com/RT-Thread-packages/zlib)的一个zip格式解、压缩的软件包。minizip是zlib官方认可的一个第三方库。
 
+教程：https://blog.csdn.net/whahu1989/article/details/80344373
 
 
 ## 主要接口文件
