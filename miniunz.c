@@ -214,6 +214,8 @@ static int do_list(uf)
         }
     }
 
+    unzClose(uf);
+
     return 0;
 }
 
@@ -233,7 +235,6 @@ static int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,pa
     uInt size_buf;
 
     unz_file_info file_info;
-    uLong ratio=0;
     err = unzGetCurrentFileInfo(uf,&file_info,filename_inzip,sizeof(filename_inzip),NULL,0,NULL,0);
 
     if (err!=UNZ_OK)
@@ -367,14 +368,14 @@ static int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,pa
 
         if (err==UNZ_OK)
         {
-            err = unzCloseCurrentFile (uf);
+            err = unzClose(uf);
             if (err!=UNZ_OK)
             {
-                printf("error %d with zipfile in unzCloseCurrentFile\n",err);
+                printf("error %d with zipfile in unzClose\n",err);
             }
         }
         else
-            unzCloseCurrentFile(uf); /* don't lose the error */
+            unzClose(uf); /* don't lose the error */
     }
 
     free(buf);
@@ -391,7 +392,6 @@ static int do_extract(uf,opt_extract_without_path,opt_overwrite,password)
     uLong i;
     unz_global_info gi;
     int err;
-    FILE* fout=NULL;
 
     err = unzGetGlobalInfo (uf,&gi);
     if (err!=UNZ_OK)
@@ -425,7 +425,6 @@ static int do_extract_onefile(uf,filename,opt_extract_without_path,opt_overwrite
     int opt_overwrite;
     const char* password;
 {
-    int err = UNZ_OK;
     if (unzLocateFile(uf,filename,CASESENSITIVITY)!=UNZ_OK)
     {
         printf("file %s not found in the zipfile\n",filename);
@@ -545,7 +544,7 @@ static int miniunz_main(argc,argv)
             return do_extract_onefile(uf,filename_to_extract,
                                       opt_do_extract_withoutpath,opt_overwrite,password);
     }
-    unzCloseCurrentFile(uf);
+    unzClose(uf);
 
     return 0;
 }
