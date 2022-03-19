@@ -139,7 +139,7 @@ static int getFileCrc(const char* filenameinzip,void*buf,unsigned long size_buf,
         fclose(fin);
 
     *result_crc=calculate_crc;
-    printf("file %s crc %x\n",filenameinzip,calculate_crc);
+    printf("file %s crc %lx\n",filenameinzip,calculate_crc);
     return err;
 }
 
