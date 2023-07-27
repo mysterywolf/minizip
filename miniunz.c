@@ -368,14 +368,14 @@ static int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,pa
 
         if (err==UNZ_OK)
         {
-            err = unzClose(uf);
+            err = unzCloseCurrentFile(uf);
             if (err!=UNZ_OK)
             {
-                printf("error %d with zipfile in unzClose\n",err);
+                printf("error %d with zipfile in unzCloseCurrentFile\n",err);
             }
         }
         else
-            unzClose(uf); /* don't lose the error */
+            unzCloseCurrentFile(uf); /* don't lose the error */
     }
 
     free(buf);
@@ -415,6 +415,8 @@ static int do_extract(uf,opt_extract_without_path,opt_overwrite,password)
         }
     }
 
+    unzClose(uf);
+
     return 0;
 }
 
@@ -433,10 +435,14 @@ static int do_extract_onefile(uf,filename,opt_extract_without_path,opt_overwrite
 
     if (do_extract_currentfile(uf,&opt_extract_without_path,
                                       &opt_overwrite,
-                                      password) == UNZ_OK)
+                                      password) == UNZ_OK) {
+        unzClose(uf);
         return 0;
-    else
+    }
+    else {
+        unzClose(uf);
         return 1;
+    }
 }
 
 
